@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"name":"墨府管家","number_of_posts_per_page":7,"disqus_shortname":"","posts":[],"pages":[{"title":"第一篇博客","date":"2016-05-05","tags":"","path":"1.html"}]}
 =======
 {"name":"yaohuxiaozi","number_of_posts_per_page":7,"disqus_shortname":"","posts":[{"title":"墨府管家的博客开篇啦~","date":"2016-05-05","tags":"","path":"2.html"},{"title":"墨府管家的博客开篇啦~","date":"2016-05-05","tags":"","path":"1.html","num":0,"type":"post","active":true}],"pages":[{"title":"第一篇博客","date":"2016-05-05","tags":"","path":"1.html","num":0,"type":"page","active":false}]}
+>>>>>>> origin/master
+=======
+{"name":"yaohuxiaozi","number_of_posts_per_page":7,"disqus_shortname":"","posts":[{"title":"墨府管家的博客开篇啦~","date":"2016-05-05","tags":"","path":"2.html","num":0,"type":"post","active":false},{"title":"墨府管家的博客开篇啦~","date":"2016-05-05","tags":"","path":"1.html","num":1,"type":"post","active":false}],"pages":[{"title":"About","date":"2016-05-05","tags":"","path":"about.html"},{"title":"第一篇博客","date":"2016-05-05","tags":"","path":"1.html","num":0,"type":"page","active":true}]}
 >>>>>>> origin/master
