@@ -51,18 +51,18 @@
     </div>
     <div id="main">
         <div class="block">
-        <h2>Create a repository</h2>
+        <h2>创建一个版本库</h2>
         <p>Head over to <a href="https://github.com">GitHub</a> and <a href="https://github.com/new">create a new repository</a> named username.github.io, where username is your username on GitHub.(Please selected the "<span style="color:red">Initialize this repository with a README</span>" when creating the repo.)</p>
         </div>
         <div class="block">
-        <h2>Initialize the repository (just the first)</h2>
+        <h2>初始化库</h2>
         <p><a class="btn btn-primary" id="init">Initialize</a></p>
-        <p><span class="label label-danger" id="initerror" style="display: none;">Error! Please try again!</span></p>
-        <p><span class="label label-success" id="initok" style="display: none;">Initialzition has completed!</span></p>
+        <p><span class="label label-danger" id="initerror" style="display: none;">Error! 请重试!</span></p>
+        <p><span class="label label-success" id="initok" style="display: none;">初始化成功！</span></p>
         </div>
         <div class="block">
-        <h2>Go to write</h2>
-        <p>If you had initialized the repository you can go to next page directly.</p>
+        <h2>写博客</h2>
+        <p>如果你已经初始化了，你可以直接进入下一页。</p>
         <p><a class="btn btn-primary" id="go">Go</a></p>
         </div>
         </p>
@@ -70,10 +70,10 @@
     <div id="posts" class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-3 sidebar">
-                <a class="nav-btn btn btn-default" href="#/posts/newpost">New post</a>
+                <a class="nav-btn btn btn-default" href="#/posts/newpost">新博文</a>
                 <ul class="nav nav-sidebar" id="postItems">
                 </ul>
-                <a class="nav-btn btn btn-default" href="#/posts/newpage">New page</a>
+                <a class="nav-btn btn btn-default" href="#/posts/newpage">新栏目</a>
                 <ul class="nav nav-sidebar" id="pageItems">
                 </ul>
             </div>
@@ -82,13 +82,13 @@
                 <div class="page-header">
                     <div class="form-inline">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="posttitle" placeholder="Title">
+                            <input type="text" class="form-control" id="posttitle" placeholder="标题">
                             <input type="text" class="form-control" id="postpath" placeholder="Url like intro.html">
-                            <input type="text" class="form-control" id="postdate" placeholder="2014-02-01">
-                            <input type="text" class="form-control" id="posttags" placeholder="Tags split with space">
-                            <a class="btn btn-default" href="#/posts/savepost" id="postSave">save</a>
-                            <a class="btn btn-danger" href="#" id="postDelete">delete</a>
-                            <span class="label label-danger" style="display:none;" id="saveerror">Save error</span>
+                            <input type="text" class="form-control" id="postdate" placeholder="时间">
+                            <input type="text" class="form-control" id="posttags" placeholder="标签 空格设置多个">
+                            <a class="btn btn-default" href="#/posts/savepost" id="postSave">保存并发表</a>
+                            <a class="btn btn-danger" href="#" id="postDelete">删除</a>
+                            <span class="label label-danger" style="display:none;" id="saveerror">保存出错</span>
                         </div>
                     </div>
                 </div>
