@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://www.zzjrly.cn/wx/mobile/green/copy4.asp?userId=392&rnd=27073 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>十渡、孤山寨、拒马河乐园一日游</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link href="5/system.css" rel="stylesheet" type="text/css">
+<link href="5/uploadifive.css" rel="stylesheet" type="text/css">
+<script src="5/jquery.js" type="text/javascript"></script>
+<script src="5/jquery.uploadifive.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function checkForm2(){
+	if(document.myform.company.value==''){
+		alert('旅行社名不能为空!');
+		document.myform.company.focus();
+		return false;
+	}
+	if(document.myform.realname.value==''){
+		alert('姓名不能为空!');
+		document.myform.realname.focus();
+		return false;
+	}
+	if(document.myform.phone.value==''){
+		alert('座机不能为空!');
+		document.myform.phone.focus();
+		return false;
+	}
+	if(document.myform.tl_price1.value==''){
+		alert('成人价不能为空!');
+		document.myform.tl_price1.focus();
+		return false;	
+	}
+	else{
+		if(isNaN(document.myform.tl_price1.value)){
+			alert('成人价必须为纯数字!');
+			document.myform.tl_price1.select();
+			return false;	
+		}	
+	}
+	if(document.myform.tl_price2.value==''){
+		alert('儿童价不能为空!');
+		document.myform.tl_price2.focus();
+		return false;	
+	}
+	else{
+		if(isNaN(document.myform.tl_price2.value)){
+			alert('儿童价必须为纯数字!');
+			document.myform.tl_price2.select();
+			return false;	
+		}	
+	}
+ return true;	
+}
+</script>
+</head>
+
+<body>
+
+<form name="myform" action="http://www.zzjrly.cn/wx/mobile/green/savecopy2.asp?act=add&amp;id=" method="post" onsubmit="return checkForm2();">
+<div class="liebiaobt">把此线路复制成你自己的</div>
+	<div class="zi">您的手机<span>18101314831</span>
+	  <div class="clear"></div>
+    </div>
+    <div class="denglu2"><span>旅行社名</span><input name="company" type="text" class="ipt">
+    	<div class="clear"></div>
+    </div>
+    
+    <div class="denglu2"><span>您的姓名</span><input name="realname" type="text" class="ipt">
+    	<div class="clear"></div>
+    </div>
+    
+	<div class="denglu2"><span>您的座机</span><input name="phone" type="text" class="ipt">
+    	<div class="clear"></div>
+    </div>
+    
+    <div class="denglu2"><span>微信号码</span><input name="wxusername" type="text" class="ipt" id="wxusername">
+    	<div class="clear"></div>
+    </div>
+    
+    
+    <div class="denglu2"><span>统一零售价</span><div class="clear"></div>
+    	<ul class="retail_price">
+          <li><span>成人</span><input type="text" name="tl_price1" class="ipt" value="98"><span>元</span></li>
+          <li><span>儿童</span><input type="text" name="tl_price2" class="ipt" value="98"><span>元</span></li>
+          <li><span>备注</span><textarea name="tl_memo" class="ipt">郊县108元/人（沿途接人）</textarea></li>
+        </ul>
+    	<div class="clear"></div>
+    </div>
+    <div class="denglu2"><span>班期</span><input type="text" name="tl_schedule" class="ipt" value="&lt;p&gt;&lt;span style=" font-size:16px"=""><span style="font-family:arial,helvetica,sans-serif"><span style="color:#ff0000">每周六/日发团</span></span><p></p>
+" style="width:80%;" /&gt;
+    	<div class="clear"></div>
+    </div>
+    
+    
+  <div class="liebiaobt" style="text-align:center;">上传微信二维码，方便客人加您微信</div>
+    
+    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="denglu3">
+  <tbody><tr>
+    <td width="49%" align="right"><div id="queue"></div><div id="uploadifive-file_upload" class="uploadifive-button" style="height: 30px; line-height: 30px; overflow: hidden; position: relative; text-align: center; width: 100px;">选择图片<input id="file_upload" name="file_upload" type="file" style="display: none;"><input type="file" style="font-size: 30px; opacity: 0; position: absolute; right: -3px; top: -3px; z-index: 999;"></div>
+        <input type="hidden" name="filename" class="filename">
+      </td>
+    <td width="1%">&nbsp;</td>
+    <td width="50%" align="left"><img src="http://www.zzjrly.cn/wx/mobile/green/copy4.asp?userId=392&amp;rnd=27073" id="myimg" style="width:100px; height:100px; margin-left:10px;"></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="right"><a href="http://www.zzjrly.cn/wx/mobile/green/getcode.asp?userid=392"><span style="font-size:14px;">如何获取微信二维码</span></a></td>
+    </tr>
+  </tbody></table>  
+<div class="denglu" style="margin-bottom:30%;">
+ <input type="hidden" name="tel" value="18101314831">
+ <input type="hidden" name="userid" value="392">
+ <input type="hidden" name="lineId" value="6447">
+ <input type="button" onclick="history.back();" value="上一步" class="btn-style-01"><input type="submit" class="btn-style-01" value="生成转发页"></div>
+</form>
+ 
+<div class="clear"></div>
+<script type="text/javascript">
+	$(function() {
+		$('#file_upload').uploadifive({
+			'auto'             : true,
+			'multi'            : false,
+			'buttonText'       :'选择图片',
+			'removeCompleted'  : true,
+			'fileSizeLimit'    : '200KB',
+			'queueID'          : 'queue',
+			'uploadScript'     : 'uploadifive.asp',
+			'onUploadComplete' : function(file, data) {var obj=JSON.parse(data); $('.filename').val(obj.filename);$("#myimg").prop("src",obj.filename);}
+		});
+	});
+</script>
+<div class="fudong">
+	<a href="javascript:window.history.go(-1)">后退</a>
+    <a href="javascript:window.history.go(1)">前进</a>
+    <a href="index.html">首页</a>
+    <a href="javascript:window.location.reload();">刷新</a>
+</div>
+
+
+</body></html>
