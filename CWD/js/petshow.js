@@ -72,7 +72,7 @@ $('.am_imglist_user_font').each(
   prefix : '',
   suffix : ''
 };
-var banner_num = new CountUp("banner_num", 956000, 956214, 0, 5, options);
+var banner_num = new CountUp("banner_num", 0, 100, 0, 5, options);
 banner_num.start();
 });
 
