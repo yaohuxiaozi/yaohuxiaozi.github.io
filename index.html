@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>聊天室</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #0f0;
+        }
+
+        .message-container {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            margin-bottom: 5px;
+        }
+
+        .user-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #nickname-input {
+            width: 150px;
+            margin-right: 10px;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            height: 40px;
+        }
+
+        input[type="text"], button {
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            border-radius: 3px;
+            padding: 5px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        button {
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0f0;
+        }
+
+        .clear-button {
+            background-color: #0f0;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="user-input">
+            <input type="text" id="nickname-input" placeholder="请输入昵称">
+            <button class="clear-button" onclick="clearChat()">清除记录</button>
+        </div>
+        <div class="message-container" id="message-container"></div>
+        <div class="user-input">
+            <input type="text" id="message-input" placeholder="请输入消息" onkeydown="handleKeyDown(event)">
+            <button onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <script>
+        // 获取页面元素
+        const messageContainer = document.getElementById('message-container');
+        const nicknameInput = document.getElementById('nickname-input');
+        const messageInput = document.getElementById('message-input');
+
+        // 从本地缓存中获取聊天记录
+        const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+
+        // 显示聊天记录
+        chatHistory.forEach((message) => {
+            displayMessage(message);
+        });
+
+        // 发送消息
+        function sendMessage() {
+            const nickname = nicknameInput.value;
+            const message = messageInput.value;
+
+            // 构造消息对象
+            const chatMessage = {
+                nickname: nickname,
+                message: message
+            };
+
+            // 显示消息
+            displayMessage(chatMessage);
+
+            // 将消息添加到聊天记录中
+            chatHistory.push(chatMessage);
+
+            // 清空消息输入框
+            messageInput.value = '';
+
+            // 更新本地缓存的聊天记录
+            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+        }
+
+        // 清除聊天记录
+        function clearChat() {
+            // 清空消息容器
+            messageContainer.innerHTML = '';
+
+            // 清空聊天记录
+            chatHistory.length = 0;
+
+            // 更新本地缓存的聊天记录
+            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+        }
+
+        // 显示消息
+        function displayMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.style.color = '#0f0';
+            messageElement.innerHTML = `<strong>${message.nickname}:</strong> ${message.message}`;
+            messageContainer.appendChild(messageElement);
+        }
+
+        // 处理按键事件
+        function handleKeyDown(event) {
+            if (event.keyCode === 13) {
+                // 按下回车键时发送消息
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
