@@ -1,156 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>聊天室</title>
+    <title>炫酷有科技感的 SVG 页面</title>
     <style>
         body {
-            background-color: #000;
-            color: #0f0;
-            font-family: 'Roboto', Arial, sans-serif;
-        }
-
-        .chat-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #0f0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px #0f0;
-        }
-
-        .message-container {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #0f0;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .message {
-            margin-bottom: 5px;
-        }
-
-        .user-input {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000000;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
         }
 
-        #nickname-input {
-            width: 150px;
-            margin-right: 10px;
+        #svg-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            z-index: 1; /* 将 SVG 容器置顶 */
         }
 
-        #message-input {
-            flex-grow: 1;
-            height: 40px;
-        }
-
-        input[type="text"], button {
-            background-color: #000;
-            color: #0f0;
-            border: 1px solid #0f0;
-            border-radius: 3px;
-            padding: 5px;
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        button {
+        #arch-container {
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
+            transform-origin: center;
+            transition: transform 0.3s;
+            animation: rotate 5s linear infinite;
         }
 
-        button:hover {
-            background-color: #0f0;
+        #arch-link {
+            fill: #ffffff;
+            stroke: #00ff00;
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5)); /* 添加边缘柔光效果 */
         }
 
-        .clear-button {
-            background-color: #0f0;
-            color: #000;
+        .laser {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background-color: #00ff00;
+            animation: laserAnimation 1s linear forwards;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes laserAnimation {
+            0% {
+                opacity: 1;
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="user-input">
-            <input type="text" id="nickname-input" placeholder="请输入昵称">
-            <button class="clear-button" onclick="clearChat()">清除记录</button>
-        </div>
-        <div class="message-container" id="message-container"></div>
-        <div class="user-input">
-            <input type="text" id="message-input" placeholder="请输入消息" onkeydown="handleKeyDown(event)">
-            <button onclick="sendMessage()">发送</button>
-        </div>
+    <div id="svg-container">
+        <!-- SVG 容器 -->
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+            <rect width="100%" height="100%" fill="none"/>
+            <!-- 点击区域 -->
+            <a id="arch-container" href="top.html">
+                <g id="arch-link">
+                    <!-- 背景方形 -->
+                    <rect x="275" y="175" width="250" height="250" fill="#000000" filter="drop-shadow(0 0 10px rgba(0, 255, 0, 0.5))" />
+                    <!-- 中心圆形 -->
+                    <circle cx="400" cy="300" r="100" fill="#ffffff" stroke="#00ff00" stroke-width="3" filter="drop-shadow(0 0 10px rgba(0, 255, 0, 0.5))" />
+                </g>
+            </a>
+        </svg>
     </div>
 
     <script>
-        // 获取页面元素
-        const messageContainer = document.getElementById('message-container');
-        const nicknameInput = document.getElementById('nickname-input');
-        const messageInput = document.getElementById('message-input');
+        function createLaser() {
+            // 创建激光束元素
+            const laser = document.createElement('div');
+            laser.className = 'laser';
+            document.body.appendChild(laser);
 
-        // 从本地缓存中获取聊天记录
-        const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            // 随机生成起始位置
+            const startX = Math.random() * window.innerWidth;
+            const startY = -10;
 
-        // 显示聊天记录
-        chatHistory.forEach((message) => {
-            displayMessage(message);
-        });
+            // 设置起始位置
+            laser.style.left = startX + 'px';
+            laser.style.top = startY + 'px';
 
-        // 发送消息
-        function sendMessage() {
-            const nickname = nicknameInput.value;
-            const message = messageInput.value;
-
-            // 构造消息对象
-            const chatMessage = {
-                nickname: nickname,
-                message: message
-            };
-
-            // 显示消息
-            displayMessage(chatMessage);
-
-            // 将消息添加到聊天记录中
-            chatHistory.push(chatMessage);
-
-            // 清空消息输入框
-            messageInput.value = '';
-
-            // 更新本地缓存的聊天记录
-            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+            // 在一定时间后移除激光束元素
+            setTimeout(() => {
+                laser.remove();
+            }, 800);
         }
 
-        // 清除聊天记录
-        function clearChat() {
-            // 清空消息容器
-            messageContainer.innerHTML = '';
-
-            // 清空聊天记录
-            chatHistory.length = 0;
-
-            // 更新本地缓存的聊天记录
-            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-        }
-
-        // 显示消息
-        function displayMessage(message) {
-            const messageElement = document.createElement('div');
-            messageElement.style.color = '#0f0';
-            messageElement.innerHTML = `<strong>${message.nickname}:</strong> ${message.message}`;
-            messageContainer.appendChild(messageElement);
-        }
-
-        // 处理按键事件
-        function handleKeyDown(event) {
-            if (event.keyCode === 13) {
-                // 按下回车键时发送消息
-                sendMessage();
-            }
-        }
+        // 设置定时器，以一定频率创建激光束
+        setInterval(createLaser, 50);
     </script>
 </body>
 </html>
